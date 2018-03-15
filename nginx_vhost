@@ -1,21 +1,25 @@
 server {
-    listen 80;
-    listen [::]:80 ipv6only=on;
+    listen 443 ssl;
+    
+
+    # Domain Name
+    server_name www.awssh.com awssh.com;
+
+    ssl on;
+    ssl_certificate /etc/letsencrypt/live/awssh.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/awssh.com/privkey.pem;
 
     underscores_in_headers on;
 
-    # Log files for Debugging
-    error_log /var/log/nginx/phpsite.dev-error.log;
 
-    # Important for VirtualBox
-    sendfile off;
+    # Log files for Debugging
+    error_log /var/log/nginx/awssh.com-error.log;
+
 
     # Webroot Directory for project
-    root /var/www/;
+    root /var/www/awssh.com;
     index index.php;
 
-    # Domain Name
-    server_name awssh.com;
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
@@ -31,4 +35,9 @@ server {
         fastcgi_cache off;
         include fastcgi_params;
     }
+}
+server {
+    listen 80;
+    server_name www.awssh.com awssh.com;
+    return 301 https://$host$request_uri;
 }

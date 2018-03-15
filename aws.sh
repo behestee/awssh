@@ -92,7 +92,7 @@ sudo sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.0/cli/php.ini
 
 # Install Nginx & PHP-FPM
 
-apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unathenticated \
+apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 nginx php7.1-fpm php7.2-fpm php7.0-fpm
 
 rm /etc/nginx/sites-enabled/default
@@ -101,7 +101,7 @@ sudo cp /home/ubuntu/awssh/nginx_vhost /etc/nginx/sites-available/nginx_vhost
 sudo ln -s /etc/nginx/sites-available/nginx_vhost /etc/nginx/sites-enabled/
 
 
-service nginx restart
+systemctl restart nginx
 # sudo service nginx restart
 
 # Installing Jenkins
