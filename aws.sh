@@ -15,7 +15,7 @@ apt-get -y upgrade
 apt-get install -y software-properties-common curl
 
 apt-add-repository ppa:nginx/stable -y
-#apt-add-repository ppa:chris-lea/redis-server -y
+apt-add-repository ppa:chris-lea/redis-server -y
 apt-add-repository ppa:ondrej/php -y
 
 
@@ -33,7 +33,7 @@ pv cifs-utils mcrypt bash-completion zsh
 
 # Install PHP Stuffs
 # Current PHP 7.2
-apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages \
+apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php7.2-cli php7.2-dev \
 php7.2-pgsql php7.2-sqlite3 php7.2-gd \
 php7.2-curl php7.2-memcached \
@@ -42,7 +42,7 @@ php7.2-xml php7.2-zip php7.2-bcmath php7.2-soap \
 php7.2-intl php7.2-readline
 
 # PHP 7.1
-apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages \
+apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php7.1-cli php7.1-dev \
 php7.1-pgsql php7.1-sqlite3 php7.1-gd \
 php7.1-curl php7.1-memcached \
@@ -51,7 +51,7 @@ php7.1-xml php7.1-zip php7.1-bcmath php7.1-soap \
 php7.1-intl php7.1-readline php-xdebug php-pear
 
 # PHP 7.0
-apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages \
+apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php7.0-cli php7.0-dev \
 php7.0-pgsql php7.0-sqlite3 php7.0-gd \
 php7.0-curl php7.0-memcached \
@@ -66,6 +66,7 @@ update-alternatives --set php /usr/bin/php7.2
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
+ln -s /usr/local/bin/composer /usr/bin/composer
 
 # Add Composer Global Bin To Path
 
@@ -91,7 +92,7 @@ sudo sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.0/cli/php.ini
 
 # Install Nginx & PHP-FPM
 
-apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages \
+apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unathenticated \
 nginx php7.1-fpm php7.2-fpm php7.0-fpm
 
 rm /etc/nginx/sites-enabled/default
@@ -99,8 +100,6 @@ rm /etc/nginx/sites-available/default
 sudo cp /home/ubuntu/awssh/nginx_vhost /etc/nginx/sites-available/nginx_vhost
 sudo ln -s /etc/nginx/sites-available/nginx_vhost /etc/nginx/sites-enabled/
 
-
-# sudo cp /var/www/hosts_conf /etc/hosts
 
 service nginx restart
 # sudo service nginx restart
