@@ -42,7 +42,8 @@ chmod +x setup_aws.sh
 sudo ./setup_aws.sh
 ```
 > It will create and configure your server, just you need to modify the vhost conf, Jenkins configuration 
-> and create your job at there.
+> and create your job at there. It also will install the mysql secure installation script and prompt you 
+> for give your settings. 
 
 # Modify Domain Name as necessary
 ```shell
