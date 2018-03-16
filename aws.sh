@@ -254,10 +254,7 @@ sudo systemctl start mysql
 sudo systemctl enable mysql
 
 # Now run the post installation security script.
-sudo mysql_secure_installation
-
-
-
+mysql_secure_installation
 
 
 # Configure Supervisor
