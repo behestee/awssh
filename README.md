@@ -36,6 +36,7 @@ sudo ls /etc/letsencrypt/live/your.domain.com
 
 # Prepare for serversetup
 ```shell
+cd ~
 git clone https://bitbucket.org/behestee/awssh.git
 cd awssh
 chmod +x setup_aws.sh
