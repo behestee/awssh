@@ -39,8 +39,8 @@ sudo ls /etc/letsencrypt/live/your.domain.com
 cd ~
 git clone https://bitbucket.org/behestee/awssh.git
 cd awssh
-chmod +x setup_aws.sh
-sudo ./setup_aws.sh
+chmod +x aws.sh
+sudo ./aws.sh
 ```
 > It will create and configure your server, just you need to modify the vhost conf, Jenkins configuration 
 > and create your job at there. It also will install the mysql secure installation script and prompt you 
