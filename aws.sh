@@ -248,7 +248,7 @@ groups jenkins
 
 
 # Install MariaDB 10.1
-sudo apt-get install mariadb-server mariadb-client
+sudo apt-get install -y mariadb-server mariadb-client
 
 # If it’s not running, start it with this command:
 sudo systemctl start mysql
