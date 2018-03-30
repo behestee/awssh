@@ -9,6 +9,9 @@ apt-get update
 # Update System Packages
 apt-get -y upgrade
 
+# Remove those dependencies that were installed with applications and that are no longer used by anything else on the system.
+apt-get autoremove && apt-get autoclean
+
 
 # Install Some PPAs
 
@@ -245,7 +248,7 @@ groups jenkins
 
 
 # Install MariaDB 10.1
-sudo apt-get install mariadb-server mariadb-client
+sudo apt-get install -y mariadb-server mariadb-client
 
 # If it’s not running, start it with this command:
 sudo systemctl start mysql
