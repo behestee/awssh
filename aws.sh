@@ -35,6 +35,11 @@ nodejs -v
 npm  -v
 
 
+# Install PM2
+
+npm install pm2 -g
+
+
 # Install Nginx & PHP-FPM
 
 apt-get install -y nginx
