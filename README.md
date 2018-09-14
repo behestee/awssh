@@ -34,11 +34,18 @@ cd /opt/letsencrypt
 sudo ls /etc/letsencrypt/live/your.domain.com
 ```
 
-# Prepare for serversetup
+# Prepare for server setup
 ```shell
 cd ~
 git clone https://bitbucket.org/behestee/awssh.git
 cd awssh
+```
+##### If you need to switch to prior branch i.e. expressjs or other
+```shell
+git checkout <branchname> 
+```
+# Execute Shell
+```shell
 chmod +x aws.sh
 sudo ./aws.sh
 ```
